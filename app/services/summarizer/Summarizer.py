@@ -8,7 +8,7 @@ class Summarizer:
     def __init__(self, model_name: str = "gemma:2b"):
         self.llm = Ollama(model=model_name)
         self.prompt_template = PromptTemplate.from_template(
-            "Summarize the main opinion expressed in the following comments:\n\n{comments}\n\nSummary:"
+            "Here is a list of comments from a Reddit post, summarize the main opinion and sentiment expressed in all comments into a short sentence:\n\n{comments}\n\nSummary:"
         )
 
     def summarize_cluster(self, comments: List[str]) -> str:
